@@ -1,0 +1,14 @@
+[alias]
+	# Display current branch
+	current = rev-parse --abbrev-ref HEAD
+	# Push to the current branch on origin
+	pushbranch = !"git push origin -u \"$(git current)\""
+	p = !"git pushbranch"
+	# pretty status
+	s = !"git status -sb"
+	# Move to master and pull latest
+	cmp = !"git checkout master && git pull"
+	# Show last 5 branches
+	recent = !"git for-each-ref --count=5 --sort=-committerdate refs/heads/ --format='%(refname:short)'"
+	# Delete all branches that have been merged into master - from Kat
+	dm = "!git branch --merged | grep -v '\\*'  | grep -v master | xargs -n 1 git branch -d"
