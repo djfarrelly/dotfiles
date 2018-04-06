@@ -1,3 +1,7 @@
+# Add section to .gitconfig
+# [include]
+#  path = dotfiles/gitaliases
+
 [alias]
 	# Display current branch
 	current = rev-parse --abbrev-ref HEAD
