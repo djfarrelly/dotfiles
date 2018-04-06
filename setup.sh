@@ -32,4 +32,11 @@ for FILE in $DOTFILES; do
   createLink $FILE $DOTFILE
 done
 
+# Appends
+APPEND="source $DIR/zshrc"
+OUTPUT="$(grep -F "$APPEND" ~/.zshrc)"
+if [ -z "$OUTPUT" ]; then
+  echo -e "\n$APPEND" >> ~/.zshrc
+fi
+
 echo "Done"
