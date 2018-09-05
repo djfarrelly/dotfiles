@@ -5,7 +5,8 @@
 # The cookie should start with "session=..."
 
 DIR=`dirname "${BASH_SOURCE[0]}"`
-COOKIES=`cat $DIR/vpn-manager-cookies.txt`
+COOKIES_FILE="$DIR/vpn-manager-cookies.txt"
+COOKIES=`cat $COOKIES_FILE`
 
 URL="https://vpnmanager.buffer.com/vpnmanager/createuser"
 TOKENNAME="buffer-vpn"
@@ -19,8 +20,14 @@ curl -XPOST $URL \
 
 IS_HTML=$(cat $FILENAME | grep "<!DOCTYPE HTML>")
 
+if [ "$1" == "--debug" ]; then
+  echo $COOKIES
+  cat $FILENAME
+fi
+
 if [ "$IS_HTML" != "" ]; then
   echo "Cookie is out of date, visit $URL to get a new cookie"
+  echo "and update the file in: $COOKIES_FILE"
   exit 1
 fi
 
