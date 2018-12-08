@@ -1,6 +1,7 @@
 # Add by adding this to the bottom of ~/.zshrc
 # source /path/to/dotfiles/zshrc
 
+
 DOTFILES_DIR=${0:a:h}
 
 ZSH_THEME="djf"
