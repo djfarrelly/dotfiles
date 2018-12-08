@@ -1,0 +1,5 @@
+[user]
+	email = daniel.j.farrelly@gmail.com
+	name = Dan Farrelly
+[include]
+	path = dotfiles/gitaliases
