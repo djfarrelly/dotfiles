@@ -8,6 +8,8 @@ ZSH_THEME="djf"
 
 # Aliases
 # alias git="hub"
+alias k="kubectl"
+alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
