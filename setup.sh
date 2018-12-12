@@ -57,8 +57,8 @@ logSuccess "custom zshrc added to ~/.zshrc"
 APPEND="path = dotfiles/gitaliases"
 OUTPUT="$(grep -F "$APPEND" ~/.gitconfig)"
 if [ -z "$OUTPUT" ]; then
-  echo -n "\n[include]" >> ~/.gitconfig
-  echo -e "\n$APPEND" >> ~/.gitconfig
+  echo -e "[include]" >> ~/.gitconfig
+  echo -e "\t$APPEND" >> ~/.gitconfig
 fi
 logSuccess "gitaliases added to ~/.gitconfig"
 
