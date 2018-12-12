@@ -13,8 +13,15 @@ alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
-alias vpn='osascript -e "tell application \"Tunnelblick\" to connect \"buffer-vpn\"";'
-alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
+
+PLATFORM="$(uname -s)"
+if [[ "$PLATFORM" == "Linux" ]]; then
+  alias vpn='sudo openvpn --config $HOME/buffer.ovpn'
+  alias vpn-refresh='echo "Not implemented :("'
+else
+  alias vpn='osascript -e "tell application \"Tunnelblick\" to connect \"buffer-vpn\"";'
+  alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
+fi
 
 # Helpers
 function reload {
