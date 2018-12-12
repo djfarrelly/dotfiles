@@ -51,4 +51,10 @@ echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+echo "Installing kubectx & kubens"
+sudo curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubectx -o /usr/local/bin/kubectx
+sudo curl -L https://raw.githubusercontent.com/ahmetb/kubectx/master/kubens -o /usr/local/bin/kubens
+sudo chmod +x /usr/local/bin/kubectx
+sudo chmod +x /usr/local/bin/kubens
+
 echo "Setup complete!"
