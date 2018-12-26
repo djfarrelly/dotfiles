@@ -43,6 +43,7 @@ function b64 {
   fi
 }
 # s <ip-address>
+PEM_KEY="$HOME/buffer.pem"
 function s {
-  ssh -i '/Users/danielfarrelly/Buffer/buffer.pem' ec2-user@$1
+  ssh -i $PEM_KEY ec2-user@$1
 }
