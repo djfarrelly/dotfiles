@@ -13,7 +13,7 @@ lxc config device add penguin tun unix-char path=/dev/net/tun
 Then launch Terminal and run:
 
 ```
-apt-get install open.vpn
+apt-get install openvpn
 ```
 
 To connect:

@@ -16,12 +16,11 @@ alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
 
 PLATFORM="$(uname -s)"
 if [[ "$PLATFORM" == "Linux" ]]; then
-  alias vpn='sudo openvpn --config $HOME/buffer.ovpn'
-  alias vpn-refresh='echo "Not implemented :("'
+  alias vpn='$DOTFILES_DIR/vpn.sh'
 else
   alias vpn='osascript -e "tell application \"Tunnelblick\" to connect \"buffer-vpn\"";'
-  alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
 fi
+alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
 
 # Helpers
 function reload {

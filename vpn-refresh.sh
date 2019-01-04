@@ -9,7 +9,7 @@ COOKIES_FILE="$DIR/vpn-manager-cookies.txt"
 COOKIES=`cat $COOKIES_FILE`
 
 URL="https://vpnmanager.buffer.com/vpnmanager/createuser"
-TOKENNAME="buffer-vpn"
+TOKENNAME="buffer"
 FILENAME="$HOME/$TOKENNAME.ovpn"
 
 echo "Downloading token to $FILENAME..."
@@ -33,6 +33,13 @@ fi
 
 chmod +x $FILENAME
 
+PLATFORM="$(uname -s)"
+if [[ "$PLATFORM" == "Linux" ]]; then
+    echo "Now run: sudo openvpn --config $FILENAME"
+    exit 0
+fi
+
+# On mac we need to load the file
 open $FILENAME
 
 # Wait 3 seconds for user to enter password
