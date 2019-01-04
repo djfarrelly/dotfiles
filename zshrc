@@ -35,8 +35,8 @@ function ipme {
 function b64 {
   ARG1="$1"
   ARG2="$2"
-  if [[ "$ARG1" == "-D" ]]; then
-    echo -n "$ARG2" | base64 -D
+  if [[ "$ARG1" == "-D" ]] || [[ "$ARG1" == "-d" ]]; then
+    echo -n "$ARG2" | base64 $ARG1
   else
     echo -n "$ARG1" | base64
   fi
