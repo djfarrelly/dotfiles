@@ -5,6 +5,8 @@
 [alias]
 	# Display current branch
 	current = rev-parse --abbrev-ref HEAD
+	# Chekc out
+	co = checkout
 	# Push to the current branch on origin
 	pushbranch = !"git push origin -u \"$(git current)\""
 	p = !"git pushbranch"
