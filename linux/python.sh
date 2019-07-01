@@ -28,3 +28,5 @@ python$SIMPLEVERSION -V
 
 echo "Install pipenv"
 pip install --user pipenv
+
+echo "NOTE: Add export PATH=$PATH:~/.local/bin to your path!"
