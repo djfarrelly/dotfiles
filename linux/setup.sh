@@ -38,11 +38,14 @@ echo "Install nvm for node.js"
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 nvm install stable
 
-echo "Instal atom packages"
-apm install atom-ide-ui
-apm install ide-typescript
-apm install ide-yaml
-apm install ide-php
+echo "Installing python"
+./python.sh
+
+# echo "Instal atom packages"
+# apm install atom-ide-ui
+# apm install ide-typescript
+# apm install ide-yaml
+# apm install ide-php
 
 echo "Installing kubectl"
 sudo apt-get install -y apt-transport-https
