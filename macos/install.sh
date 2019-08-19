@@ -19,6 +19,7 @@ nvm install stable
 echo "Install golang"
 brew install go
 mkdir ~/dev/go
+brew install glide
 
 echo "Install python"
 brew install python
