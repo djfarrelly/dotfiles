@@ -27,6 +27,7 @@ fi
 
 if [ "$IS_HTML" != "" ]; then
   echo "Cookie is out of date, visit $URL to get a new cookie"
+  open $URL
   echo "and update the file in: $COOKIES_FILE"
   exit 1
 fi

@@ -12,14 +12,10 @@ alias k="kubectl"
 alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
+alias cat="ccat"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
 
-PLATFORM="$(uname -s)"
-if [[ "$PLATFORM" == "Linux" ]]; then
-  alias vpn='$DOTFILES_DIR/vpn.sh'
-else
-  alias vpn='osascript -e "tell application \"Tunnelblick\" to connect \"buffer-vpn\"";'
-fi
+alias vpn='$DOTFILES_DIR/vpn.sh'
 alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
 
 # Helpers
@@ -46,3 +42,16 @@ PEM_KEY="$HOME/buffer.pem"
 function s {
   ssh -i $PEM_KEY ec2-user@$1
 }
+function dev {
+  cd ~/dev
+}
+
+# Golang
+export GOPATH=$HOME/dev/go
+# NOTE - May need to add /usr/local/go/bin
+export PATH=$PATH:$HOME/dev/go/bin
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
