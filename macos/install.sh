@@ -34,6 +34,9 @@ brew install mongodb
 echo "Install kubectx"
 brew install kubectx
 
+echo "Install awscli"
+brew install awscli
+
 echo "Install ccat"
 brew install ccat
 
