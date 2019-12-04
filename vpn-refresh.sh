@@ -5,33 +5,46 @@
 # The cookie should start with "session=..."
 
 DIR=`dirname "${BASH_SOURCE[0]}"`
-COOKIES_FILE="$DIR/vpn-manager-cookies.txt"
-COOKIES=`cat $COOKIES_FILE`
-
+COOKIES_FILE="$HOME/vpn-manager-cookies.txt"
 URL="https://vpnmanager.buffer.com/vpnmanager/createuser"
 TOKENNAME="buffer"
 FILENAME="$HOME/$TOKENNAME.ovpn"
+ARG="$1"
 
 echo "Downloading token to $FILENAME..."
 
-curl -XPOST $URL \
-  --cookie "$COOKIES" \
-  > $FILENAME
+function refreshToken () {
+  COOKIES=`cat $COOKIES_FILE`
 
-IS_HTML=$(cat $FILENAME | grep "<!DOCTYPE HTML>")
+  curl -XPOST $URL \
+    --cookie "$COOKIES" \
+    > $FILENAME
 
-if [ "$1" == "--debug" ]; then
-  echo $COOKIES
-  cat $FILENAME
-fi
+  IS_HTML=$(cat $FILENAME | grep "<!DOCTYPE HTML>")
 
-if [ "$IS_HTML" != "" ]; then
-  echo "Cookie is out of date, visit $URL to get a new cookie"
-  echo "and update the file in: $COOKIES_FILE"
-  exit 1
-fi
+  if [ "$ARG" == "--debug" ]; then
+    echo $COOKIES
+    cat $FILENAME
+  fi
 
-chmod +x $FILENAME
+  if [ "$IS_HTML" != "" ]; then
+    echo "Cookie is out of date, visit $URL to grab the 'set-cookie' header from the Network tab:"
+    open $URL
+    read -p "cookie: " COOKIE_CONTENTS
+    if [ "$COOKIE_CONTENTS" == "" ]; then
+      echo "Error: Cookie cannot be blank"
+      exit 1
+    fi
+    echo $COOKIE_CONTENTS > $COOKIES_FILE
+    echo "\nCookie file successfully updated: $COOKIES_FILE"
+    refreshToken
+    return 0
+  fi
+
+  chmod +x $FILENAME
+}
+
+refreshToken
 
 PLATFORM="$(uname -s)"
 if [[ "$PLATFORM" == "Linux" ]]; then
@@ -45,8 +58,10 @@ open $FILENAME
 # Wait 3 seconds for user to enter password
 sleep 3
 
-osascript<<EOF
-tell application "Tunnelblick"
-connect "$TOKENNAME"
-end tell
-EOF
+bash $DIR/vpn.sh
+
+# osascript<<EOF
+# tell application "Tunnelblick"
+# connect "$TOKENNAME"
+# end tell
+# EOF
