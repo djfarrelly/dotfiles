@@ -6,7 +6,7 @@
 
 DIR=`dirname "${BASH_SOURCE[0]}"`
 COOKIES_FILE="$HOME/vpn-manager-cookies.txt"
-URL="https://vpnmanager.buffer.com/vpnmanager/createuser"
+URL="https://vpnmanager.buffertools.com/create"
 TOKENNAME="buffer"
 FILENAME="$HOME/$TOKENNAME.ovpn"
 ARG="$1"
