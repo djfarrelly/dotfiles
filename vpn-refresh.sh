@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Create a file in this same directory called vpn-manager-cookies.txt that
-# contains a copy of the cookies from your valid browser session.
-# The cookie should start with "session=..."
+# When run, this script will attempt to use your session cookies
+# stored in ~/vpn-manager-cookies.txt to request and download a
+# new ovpn token then connect to the vpn with the vpn.sh script.
+
+# The cookie's contents can be fetched from the browser dev tools
+# by grabbing the request's cookie header from the network tab.
 
 DIR=`dirname "${BASH_SOURCE[0]}"`
 COOKIES_FILE="$HOME/vpn-manager-cookies.txt"
