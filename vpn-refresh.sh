@@ -55,13 +55,7 @@ fi
 # On mac we need to load the file
 open $FILENAME
 
-# Wait 3 seconds for user to enter password
+# Wait 3 seconds for user to enter password on Mac
 sleep 3
 
 bash $DIR/vpn.sh
-
-# osascript<<EOF
-# tell application "Tunnelblick"
-# connect "$TOKENNAME"
-# end tell
-# EOF
