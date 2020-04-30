@@ -78,8 +78,9 @@ build_prompt() {
   prompt_end
 }
 
-# PROMPT='%{%f%b%k%}$(build_prompt)
-# » '
-#
+prompt_cursor_line() {
+  prompt_segment "" yellow "⚡︎"
+}
+
 PROMPT='%{%f%b%k%}$(build_prompt)
-⚡︎'
+$(prompt_cursor_line)'
