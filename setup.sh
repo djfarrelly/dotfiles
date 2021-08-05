@@ -30,6 +30,7 @@ createLink() {
 LINKS=(
   "init.vim|.config/nvim/init.vim"
   "djf.zsh-theme|.oh-my-zsh/themes/djf.zsh-theme"
+  ".mongoshrc.js|.mongoshrc.js"
 )
 
 for PAIR in "${LINKS[@]}"; do
