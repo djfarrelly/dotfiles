@@ -6,17 +6,18 @@ DOTFILES_DIR=${0:a:h}
 
 ZSH_THEME="djf"
 
+export PATH=$PATH:/opt/homebrew/bin
+
 # Aliases
-# alias git="hub"
 alias k="kubectl"
 alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
 alias cat="ccat"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
+alias dev="cd ~/dev"
 
-alias vpn='$DOTFILES_DIR/vpn.sh'
-alias vpn-refresh='$DOTFILES_DIR/vpn-refresh.sh'
+export GIT_EDITOR=vim
 
 # Helpers
 function reload {
@@ -47,9 +48,9 @@ function dev {
 }
 
 # Golang
-export GOPATH=$HOME/dev/go
+export GOPATH=$HOME/dev
 # NOTE - May need to add /usr/local/go/bin
-export PATH=$PATH:$HOME/dev/go/bin
+export PATH=$PATH:$HOME/dev/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
