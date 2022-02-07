@@ -29,7 +29,7 @@ function ipme {
   curl -s icanhazip.com
 }
 # s <ip-address>
-PEM_KEY="$HOME/buffer.pem"
+# PEM_KEY="$HOME/x.pem"
 function s {
   ssh -i $PEM_KEY ec2-user@$1
 }
