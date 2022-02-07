@@ -48,7 +48,7 @@ function dev {
 }
 
 # Golang
-export GOPATH=$HOME/dev
+# export GOPATH=$HOME/dev/golib:$HOME/dev
 # NOTE - May need to add /usr/local/go/bin
 export PATH=$PATH:$HOME/dev/bin
 

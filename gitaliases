@@ -12,8 +12,8 @@
   p = !"git pushbranch"
   # pretty status
   s = !"git status -sb"
-  # Get main main or master branch
-  default = !"git branch | grep -E 'main|master' -m 1 | cut -c 3-"
+  # Get develop, main or master branch
+  default = !"git branch | grep -E 'develop|main|master' -m 1 | cut -c 3-"
   # Move to main and pull latest
   cmp = !"git checkout \"$(git default)\" && git pull"
   # Show last 5 branches
