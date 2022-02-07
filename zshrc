@@ -16,6 +16,7 @@ alias vim="nvim"
 alias cat="ccat"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
 alias dev="cd ~/dev"
+alias b64="$DOTFILES_DIR/utils/base64.js"
 
 export GIT_EDITOR=vim
 
@@ -26,17 +27,6 @@ function reload {
 }
 function ipme {
   curl -s icanhazip.com
-}
-# b64 something-encode
-# b64 -D something-to-decode
-function b64 {
-  ARG1="$1"
-  ARG2="$2"
-  if [[ "$ARG1" == "-D" ]] || [[ "$ARG1" == "-d" ]]; then
-    echo -n "$ARG2" | base64 $ARG1
-  else
-    echo -n "$ARG1" | base64
-  fi
 }
 # s <ip-address>
 PEM_KEY="$HOME/buffer.pem"
