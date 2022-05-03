@@ -42,8 +42,9 @@ function ipme {
 function s {
   ssh -i $PEM_KEY ec2-user@$1
 }
-function dev {
-  cd ~/dev
+function ecr-login {
+  source ~/dev/env
+  aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
 }
 
 # Golang
