@@ -5,15 +5,16 @@
 DOTFILES_DIR=${0:a:h}
 
 ZSH_THEME="djf"
+
 DISABLE_AUTO_TITLE="true"
-
 function title { echo -en "\033]2;$1\007"; }
-function cd { dir=$1; if [ -z "$dir" ]; then dir=~; fi; builtin cd "$dir" && title `basename $(pwd)`; }
+function cd {
+  dir=$1;
+  if [ -z "$dir" ];
+  then dir=~; fi;
+  builtin cd "$dir" && title `basename $(pwd)`;
+}
 cd `pwd`
-
-# function set_terminal_title() {
-#   echo -en "\e]2;$@\a"
-# }
 
 export PATH=$PATH:/opt/homebrew/bin
 
