@@ -13,7 +13,7 @@
   # pretty status
   s = !"git status -sb"
   # Get develop, main or master branch
-  default = !"git branch | grep -E 'develop|main|master' -m 1 | cut -c 3-"
+  default = !"git branch | cut -c 3- | grep -E '^develop|^main|^master' -m 1"
   # Move to main and pull latest
   cmp = !"git checkout \"$(git default)\" && git pull"
   # Show last 5 branches
