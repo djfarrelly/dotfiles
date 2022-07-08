@@ -61,5 +61,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # Inngest
-alias inngestctl="$HOME/dev/inngest-cli/main"
-alias inngest="$HOME/dev/inngest-cli/main"
+alias inngestctl="$HOME/dev/inngest/main"
+alias inngest="$HOME/dev/inngest/main"
