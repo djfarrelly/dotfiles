@@ -27,6 +27,7 @@ alias cat="ccat"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
 alias dev="cd ~/dev"
 alias b64="$DOTFILES_DIR/utils/base64.js"
+alias portkill="$DOTFILES_DIR/utils/portkill.js"
 
 export GIT_EDITOR=vim
 
