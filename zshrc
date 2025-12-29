@@ -7,14 +7,15 @@ DOTFILES_DIR=${0:a:h}
 ZSH_THEME="djf"
 
 DISABLE_AUTO_TITLE="true"
-function title { echo -en "\033]2;$1\007"; }
-function cd {
-  dir=$1;
-  if [ -z "$dir" ];
-  then dir=~; fi;
-  builtin cd "$dir" && title `basename $(pwd)`;
-}
-cd `pwd`
+# Disable with Ghostty
+# function title { echo -en "\033]2;$1\007"; }
+# function cd {
+#   dir=$1;
+#   if [ -z "$dir" ];
+#   then dir=~; fi;
+#   builtin cd "$dir" && title `basename $(pwd)`;
+# }
+# cd `pwd`
 
 export PATH=$PATH:/opt/homebrew/bin
 
@@ -49,18 +50,35 @@ function ecr-login {
   aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com
 }
 
+function set_title {
+  echo -en "\033]2;$1\007";
+}
+
 # Golang
 # export GOPATH=$HOME/dev/golib:$HOME/dev
 # NOTE - May need to add /usr/local/go/bin
 export PATH=$PATH:$HOME/dev/bin
+export GOBIN=$HOME/dev/bin
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
+# Android Studio
+# export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
+alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
 
 
 # Inngest
-alias inngestctl="$HOME/dev/inngest/main"
-alias inngest="$HOME/dev/inngest/main"
+alias inngest="$HOME/dev/inngest/inngest"
+
+alias dps="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}'"
+
+source $DOTFILES_DIR/zsh-gh-cli
+
+# Rust
+source $HOME/.cargo/env
+
+# Default to dev for new terminal sessions
+[[ $(pwd) == $HOME ]] && cd ~/dev
