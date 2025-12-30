@@ -6,9 +6,6 @@ echo "Install Homebrew"
 echo "Install oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-echo "Install iTerm"
-brew install iterm
-
 echo "Install neovim"
 brew install neovim
 
@@ -26,16 +23,6 @@ brew install python
 # Symlink to python3
 ln -sf /usr/local/bin/python3 /usr/local/bin/python
 ln -sf /usr/local/bin/pip3 /usr/local/bin/pip
-
-# echo "Install mongodb"
-# brew install mongodb
-
-# Docker for Mac will install kubectl
-# echo "Install kubectx"
-# brew install kubectx
-
-# echo "Install awscli"
-# brew install awscli
 
 echo "Install ccat"
 brew install ccat

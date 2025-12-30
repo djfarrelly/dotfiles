@@ -1,0 +1,9 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+# symlinked to ~/.config/jj/config.toml
+
+[user]
+name = "Dan Farrelly"
+email = "daniel.j.farrelly@gmail.com"
+
+[ui]
+editor = "nvim"

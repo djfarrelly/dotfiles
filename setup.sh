@@ -30,6 +30,7 @@ createLink() {
 LINKS=(
   "init.vim|.config/nvim/init.vim"
   "djf.zsh-theme|.oh-my-zsh/themes/djf.zsh-theme"
+  "jjconfig.toml|.config/jj/config.toml"
   ".mongoshrc.js|.mongoshrc.js"
 )
 
