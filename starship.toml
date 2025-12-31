@@ -1,4 +1,3 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[git_branch]
