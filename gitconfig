@@ -12,3 +12,5 @@
 	program = gpg
 [init]
 	defaultBranch = main
+[include]
+	path = /Users/danfarrelly/dev/dotfiles/gitaliases

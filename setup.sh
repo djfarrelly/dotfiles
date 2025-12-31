@@ -32,6 +32,7 @@ LINKS=(
   "djf.zsh-theme|.oh-my-zsh/themes/djf.zsh-theme"
   "jjconfig.toml|.config/jj/config.toml"
   ".mongoshrc.js|.mongoshrc.js"
+  "starship.toml|.config/starship.toml"
 )
 
 for PAIR in "${LINKS[@]}"; do
@@ -56,7 +57,7 @@ if [ -z "$OUTPUT" ]; then
 fi
 logSuccess "custom zshrc added to ~/.zshrc"
 
-APPEND="path = dotfiles/gitaliases"
+APPEND="path = $DIR/gitaliases"
 OUTPUT="$(grep -F "$APPEND" ~/.gitconfig)"
 if [ -z "$OUTPUT" ]; then
   echo -e "[include]" >> ~/.gitconfig

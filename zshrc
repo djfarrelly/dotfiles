@@ -1,10 +1,15 @@
 # Add by adding this to the bottom of ~/.zshrc
 # source /path/to/dotfiles/zshrc
 
+export ZSH="$HOME/.oh-my-zsh"
 
 DOTFILES_DIR=${0:a:h}
 
-ZSH_THEME="djf"
+# ZSH_THEME="djf"
+
+eval "$(starship init zsh)"
+
+plugins=(git)
 
 DISABLE_AUTO_TITLE="true"
 # Disable with Ghostty
@@ -17,7 +22,7 @@ DISABLE_AUTO_TITLE="true"
 # }
 # cd `pwd`
 
-export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/bin:/usr/local/bin
 
 # Aliases
 alias k="kubectl"
