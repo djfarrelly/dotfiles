@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su
+
 echo "Install Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -12,14 +14,24 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 echo "Install neovim"
 brew install neovim
 
-echo "Installing nvm and node"
-brew install nvm
-nvm install stable
+# echo "Installing nvm and node"
+# brew install nvm
+# nvm install stable
+
+echo "Install volta"
+curl https://get.volta.sh | bash
+
+echo "Add volta and node to path for this shell session"
+export PATH="$HOME/.volta/bin:$PATH"
+
+echo "Install node"
+volta install node@lts
 
 echo "Install golang"
 brew install go
+
+echo "Creating dev directory"
 mkdir ~/dev
-# brew install glide
 
 echo "Install python"
 brew install python
@@ -28,9 +40,22 @@ ln -sf /usr/local/bin/python3 /usr/local/bin/python
 ln -sf /usr/local/bin/pip3 /usr/local/bin/pip
 
 # Install rust
+echo "Install rust"
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+echo "Install kubectl"
+brew install kubectl
+
+# Symlink for k to kubectl so it works with watch
+sudo ln -sf `which kubectl` /usr/local/bin/k
+
+echo "Install awscli"
+brew install awscli
 
 echo "Install ccat"
 brew install ccat
+
+echo "Install watch"
+brew install watch
 
 echo "Installation complete"

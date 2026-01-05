@@ -25,7 +25,6 @@ DISABLE_AUTO_TITLE="true"
 export PATH=$PATH:/opt/homebrew/bin:/usr/local/bin
 
 # Aliases
-alias k="kubectl"
 alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
