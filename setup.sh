@@ -33,7 +33,10 @@ LINKS=(
   "jjconfig.toml|.config/jj/config.toml"
   ".mongoshrc.js|.mongoshrc.js"
   "starship.toml|.config/starship.toml"
+  "ghosttyconfig|.config/ghostty/config"
 )
+
+mkdir -p ~/.config/ghostty
 
 for PAIR in "${LINKS[@]}"; do
   IFS='|' read FILE LINK <<<"$PAIR"

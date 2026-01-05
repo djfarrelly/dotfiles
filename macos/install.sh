@@ -49,8 +49,19 @@ brew install kubectl
 # Symlink for k to kubectl so it works with watch
 sudo ln -sf `which kubectl` /usr/local/bin/k
 
+echo "Install kubectx"
+brew install kubectx
+
 echo "Install awscli"
 brew install awscli
+
+
+echo "Install jj"
+brew install jj
+
+echo "Install jj config"
+rm `jj config p --user`
+ln -s $DOTFILES_DIR/jjconfig.toml `jj config p --user`
 
 echo "Install ccat"
 brew install ccat

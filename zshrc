@@ -34,6 +34,9 @@ alias dev="cd ~/dev"
 alias b64="$DOTFILES_DIR/utils/base64.js"
 alias portkill="$DOTFILES_DIR/utils/portkill.js"
 
+alias awslogin="aws sso login --profile inngest"
+export AWS_DEFAULT_PROFILE=inngest
+
 export GIT_EDITOR=vim
 
 # Helpers
@@ -72,6 +75,9 @@ export NVM_DIR="$HOME/.nvm"
 # Android Studio
 # export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 alias adb="$HOME/Library/Android/sdk/platform-tools/adb"
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 
 # Inngest
