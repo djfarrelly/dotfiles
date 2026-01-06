@@ -27,6 +27,9 @@ export PATH="$HOME/.volta/bin:$PATH"
 echo "Install node"
 volta install node@lts
 
+echo "Install pnpm"
+volta install pnpm
+
 echo "Install golang"
 brew install go
 
@@ -55,6 +58,8 @@ brew install kubectx
 echo "Install awscli"
 brew install awscli
 
+echo "Install gh"
+brew install gh
 
 echo "Install jj"
 brew install jj
