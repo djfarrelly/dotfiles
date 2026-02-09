@@ -5,10 +5,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 DOTFILES_DIR=${0:a:h}
 
-# ZSH_THEME="djf"
-
-eval "$(starship init zsh)"
-
 plugins=(git)
 
 DISABLE_AUTO_TITLE="true"
@@ -89,6 +85,9 @@ source $DOTFILES_DIR/zsh-gh-cli
 
 # Rust
 source $HOME/.cargo/env
+
+# Init starship - it should be in the path
+eval "$(starship init zsh)"
 
 # Default to dev for new terminal sessions
 [[ $(pwd) == $HOME ]] && cd ~/dev
