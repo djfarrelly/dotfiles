@@ -18,12 +18,13 @@ DISABLE_AUTO_TITLE="true"
 # }
 # cd `pwd`
 
-export PATH=$PATH:/opt/homebrew/bin:/usr/local/bin
+export PATH=$PATH:/opt/homebrew/bin:/usr/local/bin:$HOME/.local/bin
 
 # Aliases
 alias wk="watch kubectl"
 alias dc="docker-compose"
 alias vim="nvim"
+alias vi="nvim"
 alias cat="ccat"
 alias docker-cleanup-all-containers='docker rm $(docker ps -a -q) -f'
 alias dev="cd ~/dev"
@@ -33,7 +34,7 @@ alias portkill="$DOTFILES_DIR/utils/portkill.js"
 alias awslogin="aws sso login --profile inngest"
 export AWS_DEFAULT_PROFILE=inngest
 
-export GIT_EDITOR=vim
+export GIT_EDITOR=nvim
 
 # Helpers
 function reload {
