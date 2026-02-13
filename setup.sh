@@ -15,6 +15,7 @@ logFailure() {
 createLink() {
   FILE="$1"
   LINK="$2"
+  mkdir -p "$(dirname ~/$LINK)"
   if [ -L ~/$LINK ]; then
     logSuccess "~/$LINK -> $DIR/$FILE"
   elif [ -f ~/$LINK ]; then
@@ -28,15 +29,13 @@ createLink() {
 
 # Symlinks
 LINKS=(
-  "init.vim|.config/nvim/init.vim"
+  "init.lua|.config/nvim/init.lua"
   "djf.zsh-theme|.oh-my-zsh/themes/djf.zsh-theme"
   "jjconfig.toml|.config/jj/config.toml"
   ".mongoshrc.js|.mongoshrc.js"
   "starship.toml|.config/starship.toml"
   "ghosttyconfig|.config/ghostty/config"
 )
-
-mkdir -p ~/.config/ghostty
 
 for PAIR in "${LINKS[@]}"; do
   IFS='|' read FILE LINK <<<"$PAIR"
